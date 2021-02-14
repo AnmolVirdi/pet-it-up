@@ -46,4 +46,4 @@ Petito would lay the foundation of another new step towards petting culture and 
 
 ![Image](petitos.jpg)
 
-#### We wish the best for humanity.
+### We wish the best for humanity.
