@@ -1,4 +1,4 @@
-
+// Code for IOT device to measure temp and humidity
 
 #include <ESP8266WiFi.h>
 #include <WiFiClientSecure.h>
@@ -32,7 +32,6 @@ void setup() {
     
   pinMode(LED,OUTPUT);
   digitalWrite(LED, HIGH); 
-  //----------------------------------------Wait for connection
   Serial.print("Connecting");
   while (WiFi.status() != WL_CONNECTED) {
     Serial.print(".");
@@ -46,8 +45,7 @@ void setup() {
   digitalWrite(LED, HIGH); //--> Turn off the On Board LED when it is connected to the wifi router.
   
   Serial.println("");
-  Serial.print("Successfully connected to : ");
-  Serial.println(ssid);
+  Serial.print("Successfully connected ");
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
   Serial.println();
