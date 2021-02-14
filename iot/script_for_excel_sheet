@@ -1,0 +1,41 @@
+function doGet(e) { 
+  Logger.log( JSON.stringify(e) );
+  var result = 'Ok';
+  if (e.parameter == 'undefined') {
+    result = 'No Parameters';
+  }
+  else {
+    var sheet_id = '1mvj2h---------------------------------aekFqCvHE8pTI'; 	// Spreadsheet ID
+    var sheet = SpreadsheetApp.openById(sheet_id).getActiveSheet();
+    var newR = sheet.getLastRow() + 1;						
+    var rowD = [];
+    var Curr_Date = new Date();
+    rowD[0] = Curr_Date; // Date in column A
+    var Curr_Time = Utilities.formatDate(Curr_Date, "Asia/Kolkata", 'HH:mm:ss');
+    rowD[1] = Curr_Time; // Time in column B
+    for (var param in e.parameter) {
+      Logger.log('In for loop, param=' + param);
+      var value = stripQuotes(e.parameter[param]);
+      Logger.log(param + ':' + e.parameter[param]);
+      switch (param) {
+        case 'temperature':
+          rowD[2] = value; 
+          result = 'Temperature  at column C'; 
+          break;
+        case 'humidity':
+          rowD[3] = value; 
+          result += ' ,Humidity  at column D'; 
+          break;  
+        default:
+          result = "non-define parameter";
+      }
+    }
+    Logger.log(JSON.stringify(rowData));
+    var newRange = sheet.getRange(newRow, 1, 1, rowData.length);
+    newRange.setValues([rowData]);
+  }
+  return ContentService.createTextOutput(result);
+}
+function stripQuotes( value ) {
+  return value.replace(/^["']|['"]$/g, "");
+}
