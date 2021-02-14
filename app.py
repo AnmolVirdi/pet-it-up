@@ -16,7 +16,7 @@ def home():
     if 'email' in session:
         email=session['email']
         return render_template('index.html')
-    return render_template('signup.html')
+    return render_template('index.html')
 
 
 @app.route('/signup',methods=['POST','GET'])
