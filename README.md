@@ -44,6 +44,6 @@ Petito can prove to be a great boon  to humanity as well as animals. We have mul
 
 Petito would lay the foundation of another new step towards petting culture and also open doors to business opportunities. This would allow local pet shop owners to advertise their pets online. 
 
-
+![Image](petitos.jpg)
 
 #### We wish the best for humanity.
